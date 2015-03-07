@@ -176,9 +176,8 @@ custom open-like licences). Z3 is an example from the verification
 area: the code itself is not open source, but the MSR-LA license that allows
 the source code to be read, copied, forked for academic use, provides
 researchers in the field much more than
-before~\cite{deMoura2012Z3open}.
+before~\cite{deMoura2012Z3open}.\\
  
-
 \noindent {\textbf{Recommendation {\textrm{II}}:}} There is little
 doubt that, if science wants to be open and free, then the code that
 underlies it too needs to be open and free. Code that is available for
@@ -215,7 +214,7 @@ quality of the software written enormously~\cite{wilson2006}.
 Interestingly, many of these concepts are taught to computer science
 undergraduates, but it could be argued that they are taught at the
 wrong time of their careers, without the experience of complex,
-long-running projects.
+long-running projects.\\
 %\footnote{Also see: \url{http://philipwfowler.wordpress.com/2013/12/19/the-oxford-software-carpentry-boot-camp-one-year-on/}}.
 
 \noindent {\textbf{Recommendation {\textrm{III}}:}} Software
@@ -263,7 +262,7 @@ types, a concept called units of measure that is implemented in
 languages such as F\#, can deal with these kinds of bugs at compile
 time. Similarly, problems found using in-house software for
 crystallography led to the retraction of five
-papers~\cite{Miller2006}, due to a bug which inverted the phases.
+papers~\cite{Miller2006}, due to a bug which inverted the phases.\\
 
 \noindent {\textbf{Recommendation {\textrm{IV}}:}} The use of a
 principled, high-level programming language in which to write your
@@ -285,7 +284,7 @@ to alter the number of water molecules added to each system by
 one. This meant that the same simulation performed on different
 architectures would diverge. Similarly, in a different simulation
 engine, different neighbour searching strategies gave divergent
-simulations due to the differing order in which forces were summed.
+simulations due to the differing order in which forces were summed.\\
 
 \noindent {\textbf{Recommendation {\textrm{V}}:}} Despite these
 challenges to testing, unshared code is ultimately untestable.
@@ -299,7 +298,7 @@ test-able.
 
 Research software is not just software -- it is the instantiation of
 novel algorithms and data structures (or at least novel applications
-of data structures). Thus, lineage is important:
+of data structures). Thus, lineage is important:\\
 
 \noindent {\textbf{Recommendation {\textrm{VI}}:}} Code should always
 include links to papers publishing key algorithms and the code should
@@ -319,7 +318,7 @@ files\footnote{\url{http://blog.rtwilson.com/encouraging-citation-of-software-in
 
 \begin{figure}[!ht]
 \centering
-\includegraphics[width=0.9\columnwidth]{images/overlyhonesttweet.png}
+\includegraphics[width=0.8\textwidth]{images/overlyhonesttweet.png}
 \caption{{\texttt{\#overlyhonestmethods}} on Twitter\newline [source: \url{https://twitter.com/ianholmes/status/288689712636493824}]}
 \label{fig:overlyhonestmethod} 
 \end{figure}
@@ -330,25 +329,25 @@ see: \url{http://www.phdcomics.com/comics.php?f=1689}}. Often, the
 tool that the paper describes does not exist for download. Or runs
 only on one particular bespoke platform. Or might run for the author,
 for a while, but will `bit-rot' so quickly that even the author cannot
-compile it in a couple of month's time.
+compile it in a couple of month's time.\\
 
 \noindent {\textbf{Recommendation {\textrm{VII}}:}} Providing the
 source code of the tool helps, of course. But you must also provide
 details of precisely \emph{how} you built and wrote the software. For
 example:
 
-\begin{compactitem}
+\begin{itemize}
 \item you should provide the compiler and build toolchain; 
 \item you should provide build tools (e.g. Makefiles/Ant/etc) and
   comprehensive build instructions; 
 \item you should list or link to all non-standard packages and libraries that you use; 
 \item you should note the specifics of the hardware and OS used. 
-\end{compactitem}
+\end{itemize}
 
 This may appear to be significant extra overhead for researchers, but
 GitHub APIs, continuous integration servers, virtual machines and
 cloud environments can make it easier; see
-Section~\ref{sec:Conclusion} for more on this.
+Section~\ref{sec:conclusion} for more on this.
 
 
 % Recommendation VIII
@@ -370,7 +369,7 @@ expressed in SMV format, but this would mean that standard
 qualitative/Boolean network behaviours have to be hard-coded for each
 variable, introducing the possibility for errors. In the
 BioModelAnalyzer tool~\cite{Benque2012}, the XML contains \emph{only}
-the modifiable parameters limiting the possibility for error.
+the modifiable parameters limiting the possibility for error.\\
 
 \noindent {\textbf{Recommendation {\textrm{VIII}}:}} Avoid creating
 new representations when common formats already exist. Use existing
@@ -393,7 +392,7 @@ benchmarks. It is as if, in order to beat Usain Bolt's
 \num{100}\si{\metre} world record time, you make him wear boots on a
 muddy icy track, weighing him down with \num{50}\si{\kilogram} of
 excess weight. Given this set up, you could surely hope to beat his
-\num{9.63}\si{\second} time on a shorter length track.
+\num{9.63}\si{\second} time on a shorter length track.\\
 
 \noindent {\textbf{Recommendation {\textrm{IX}}:}} Benchmarks should
 be public. They should allow anyone to contribute, implying that the
@@ -425,7 +424,7 @@ to demonstrate how well the software scales for parallel calculations.
 Cloud computing is cheap, and getting cheaper. Algorithms that used to
 require massive HPC resources can now be run cheaply by bidding on the
 VM spot market. The Web is a great leveller: use and share workflows
-and web services~\cite{crick-et-al:2009b}.
+and web services~\cite{crick-et-al:2009b}.\\
 
 \noindent {\textbf{Recommendation {\textrm{X}}:}} The Web and the
 cloud really do open up a whole new way of working. Even small,
@@ -440,30 +439,29 @@ great start that begin to expose what can be done in this area.
 % removed: ~\cite{tryFsharp} ~\cite{Z3tutorial}
 
 
-\section{A Model for Reproducible Research Software}\label{sec:Conclusion} 
+\section{A Model for Reproducible Research Software}\label{sec:conclusion} 
 %\section{Conclusions: A New Model}
 
-\noindent{\textbf{This is how we imagine the future for research
-software:}}\newline\newline
+A service for reproducibility is intended to play three important
+roles. It should:
 
-\begin{figure}[!ht]
-\centering
-\includegraphics[width=0.9\columnwidth]{images/workflow.png}
-\caption{Proposed system workflow}
-\label{fig:workflow} 
-\end{figure}
+\begin{enumerate}
+\item Demonstrate that a piece of code can be compiled, run
+and behaves as described, without manual intervention from the
+developer.
+\item Store and link specific artefacts with their linked
+publications or other publicly-accessible datasets.
+\item Allow new benchmarks to be added, by users other than
+the developer, to widen the testing and identify potential bugs.
+\end{enumerate}
+
+% \noindent{\textbf{This is how we imagine the future for research
+% software:}}\newline
 
 Suppose you have come up with a better
 algorithm to deal with some standard problem.  You write up the paper
 on the algorithm, and you also push a C++ implementation of your
 algorithm to the our cloud environment's section on this standard problem.
-
-\begin{figure}[!ht]
-	\centering
-	\includegraphics[width=\textwidth]{workflow}
-	\caption{Proposed reproducibility service workflow}
-	\label{schematic}
-\end{figure}
 
 The effect of pushing your implementation is to register your program
 as a possible competitor in this standard problem competition. There
@@ -478,6 +476,13 @@ the platforms you specify, and runs all the benchmarks. This happens
 every time you push. It also happens every time one of your
 dependencies (a library, a firmware upgrade for your platform, a new
 API) changes too.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.9\columnwidth]{images/workflow.png}
+\caption{Proposed reproducibility service workflow}
+\label{fig:workflow} 
+\end{figure}
 
 If we are truly serious about addressing the systemic socio-technical
 issues in scientific disciplines that are underpinned by leveraging
