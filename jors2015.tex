@@ -11,7 +11,7 @@
 
 
 % title
-\title{``Reproducibility-as-a-Service'':\\Publishing Useful and Usable Scientific Models}
+\title{``Reproducibility-as-a-Service'':\\A Model for Reproducible Computational Research}
 %\title{``Can I Implement Your Algorithm?'':\\A Model for Reproducible Research Software}
 
 \author[1]{Tom Crick}
@@ -33,6 +33,10 @@
 \begin{document}
 \maketitle
 
+% Keywords:
+% Reproducibility, Benchmarks, Models, Cloud Services, e-Infrastructure,
+% Computational Science, Open Science
+
 \begin{abstract}
 The reproduction and replication of novel results has become a major
 issue for a number of scientific disciplines. In computer science and
@@ -46,17 +50,19 @@ benchmark sets present another barrier.
 
 In this paper, we outline several suggestions to address these issues,
 driven by specific examples from a range of scientific domains.
-Finally, based on these suggestions, we propose a new open platform
-for scientific software development which effectively isolates
-specific dependencies from the individual researcher and their
-workstation and allows faster, more powerful sharing of the results of
-scientific software engineering.
+Finally, based on these suggestions, we propose a new open automated
+platform for scientific software development which effectively
+abstracts specific dependencies from the individual researcher and
+their workstation, allowing easy sharing and reproduction of
+results. This new e-infrastructure for computational science offers
+the potential to incentivise a culture change and drive the adoption
+of new techniques to improve the efficiency of scientific exploration.
 \end{abstract}
 
 \section{Introduction}
 
 Marc Andreessen (co-author of Mosaic, the first widely used Web
-browser) famously said in 2011 that ``{\emph{software is eating the
+browser) famously stated in 2011 that ``{\emph{software is eating the
 world}}''~\cite{andreessen:2011}. It is true: we clearly live in a
 computational world, with our everyday communications, entertainment,
 shopping, security, banking, transportation, etc, all heavily
@@ -66,14 +72,17 @@ This is particularly true for science and engineering. A 2012 report
 by the Royal Society stated that computational techniques have
 ``{\emph{moved on from assisting scientists in doing science, to
 transforming both how science is done and what science is
-done}}''~\cite{rssaaoe:2012}. New experiments, simulations, models,
-benchmarks, even proofs cannot be done without software. And this
-software does not consist of simple hack-together, use-once,
-throw-away scripts; scientific software repositories contain
-thousands, perhaps millions, of lines of code and they increasingly
-need to be actively supported and maintained. More importantly, with
-reproducibility being a fundamental tenet of science, they need to be
-re-useable.
+done}}''~\cite{rssaaoe:2012}. Many of the examples discussed in this
+paper take advantage of a fundamental advantage of computer science
+and more broadly, computational science: the unique ability to share
+the raw outputs of their work as software and datafiles. New
+experiments, simulations, models, benchmarks, even proofs cannot be
+done without software. And this software does not consist of simple
+hack-together, use-once, throw-away scripts; scientific software
+repositories contain thousands, perhaps millions, of lines of code and
+they increasingly need to be actively supported and maintained. More
+importantly, with reproducibility being a fundamental tenet of
+science, they need to be re-useable.
 
 However, if we closely analyse the scientific literature related to
 software tools it often does not appear to be adhering to these
@@ -89,47 +98,60 @@ There are numerous reasons why the wider scientific community is in
 this state. We are experiencing significant changes in academic
 dissemination and publication, especially the open access movement,
 with new models being
-proposed~\cite{stodden-et-al:2013,fursin+dubach:2014}. It is partly
-cultural: there are numerous non-technical impediments to making
-software maintainable and re-useable, too. The pressure to ``make the
-discovery'' and publish quickly disincentivises careful software
-curation. Releasing code prematurely is often seen to give your
-competitors an advantage, but we should be shining light into these
-``black boxes''~\cite{morin-et-al:2012}. In essence: better software,
-better research~\cite{goble:2014}.
+proposed~\cite{deroure:2010,stodden-et-al:2013,fursin+dubach:2014}. Thus,
+the reproduction and replication of reported scientific results has
+become a widely discussed topic within the scientific
+community~\cite{barnes:2010,morin-et-al:2012,joppa-et-al:2013}.
+Whilst the retraction of several studies has drawn the focus of many
+commentators, automated systems, which allow easy reproduction of
+results, offer the potential to improve the efficiency of scientific
+exploration and drive the adoption of new techniques. But just
+publishing (linked) scientific data is not enough to ensure the
+required reusability~\cite{bechhofer-et-al:2013}. There exists a wider
+socio-cultural problem that pervades the scientific community, with
+estimates that as much as 50\% of published studies, even those in
+top-tier academic journals, cannot be repeated with the same
+conclusions by an industrial lab~\cite{osherovich:2011}. There are
+numerous non-technical impediments to making software maintainable and
+re-useable. The pressure to ``make the discovery'' and publish quickly
+disincentivises careful software curation. Releasing code prematurely
+is often seen to give your competitors an advantage, but we should be
+shining light into these ``black boxes''~\cite{morin-et-al:2012}. In
+essence: better software, better research~\cite{goble:2014}.
 
 Nevertheless, there has been previous work in this
-area~\cite{sim-et-al:2003,chirigati-et-al:2013}, as well as a range of
-manifestos for reproducible research and community initiatives, such
-as the Recomputation
+area~\cite{sim-et-al:2003,chirigati-et-al:2013,stodden+miguez:2014},
+as well as a number of manifestos for reproducible research and
+community initiatives, such as the Recomputation
 Manifesto~\cite{gent:2013}\footnote{\url{http://www.recomputation.org/}}
 and
 cTuning~\cite{fursin-et-al:2014}\footnote{\url{http://ctuning.org/}},
 along with curated recommendations on where to publish research
 software\footnote{\url{http://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-software}}.
 
-However, things can, should and need to be much better. In this paper,
-we present a call to action, along with a set of recommendations which
-we hope will lead to better, more sustainable, more re-useable
-software, to move towards an imagined future practice of software
-development and usage in science and engineering.  The basis for many
-of these recommendations is predicated on the basic scientific tenet
-of openness.
+However, things can, should and need to be much better. Building upon
+previous work~\cite{crick-et-al_wssspe2}, we present a call to action,
+along with a set of recommendations which we hope will lead to better,
+more sustainable, more re-useable software, to move towards an
+imagined future practice and usage of scientific software
+development. The basis for many of these recommendations is predicated
+on the fundamental scientific tenets of openness and sharing.
 
 \section{We Need to Talk About Reproducibility}
 
 % Recommendation I
-\subsection{Can I Implement Your Algorithm?}
+\subsection{{\emph{Can I Implement Your Algorithm?}}}
 
-Reproducibility is a fundamental tenet of good science. Yet many
-descriptions of algorithms are too high-level, too obscure, too
-poorly-defined to allow an easy re-implementation by a third party. A
-step in the algorithm might say: ``{\emph{We pick an element from the
-frontier set}}'' but which element do you pick? Will the first one do?
-Why will any element suffice? Sometimes the author would like to give
-more implementation detail but is constrained by the paper page
-limit. Sometimes the authors' description in-lines other algorithms or
-data structures that perhaps only that author is familiar with.
+Reproducibility (replication, repeatability) is a fundamental tenet of
+good science. Yet many descriptions of algorithms are too high-level,
+too obscure, too poorly-defined to allow an easy re-implementation by
+a third party. A step in the algorithm might say: ``{\emph{We pick an
+element from the frontier set}}'' but which element do you pick? Will
+the first one do?  Why will any element suffice? Sometimes the author
+would like to give more implementation detail but is constrained by
+the paper page limit. Sometimes the authors' description in-lines
+other algorithms or data structures that perhaps only that author is
+familiar with.\\
 
 \noindent {\textbf{Recommendation {\textrm{I}}:}} We recommend here
 that a paper must describe the algorithm in such a way that it is
@@ -137,14 +159,16 @@ implementable by any reader of that algorithm. This is subjective, of
 course. Therefore, we also recommend that relevant scientific
 conferences have a special track for papers that re-implement past
 papers' algorithms, techniques or tools, as well as incentives to
-support sharing of computational artefacts (for example, the Artifact
-Evaluation process as part of the 2014 ACM SIGPLAN Conference on
-Object-Oriented Programming, Systems, Languages \&
-Applications (OOPSLA)\footnote{\url{http://2014.splashcon.org/track/splash2014-artifacts}}).
+support sharing of computational artefacts (for example, as number of
+high-profile computer science conferences now explicitly acknowledge
+the importance of reproducibility, promoting community-driven
+reviewing and validation; we have recently proposed something for the
+computer-aided formal analysis and verification research
+community~\cite{crick-et-al-cav}).
 
 
 % Recommendation II
-\subsection{Set The Code Free} 
+\subsection{{\emph{Set The Code Free}}}
 
 There can be no better proof that your algorithm works, than if you
 provide the source code of an implementation. Software development is
@@ -195,7 +219,7 @@ source license\footnote{\url{http://matt.might.net/articles/crapl/}}
 and publish your code -- it is good enough~\cite{barnes:2010}.
 
 % Recommendation III
-\subsection{Be A Better Person}
+\subsection{{\emph{Be A Better Person}}}
 
 If you have the appropriate skills and the experience, you can always
 create better software. We have seen the emergence of successful
@@ -215,7 +239,7 @@ Interestingly, many of these concepts are taught to computer science
 undergraduates, but it could be argued that they are taught at the
 wrong time of their careers, without the experience of complex,
 long-running projects.\\
-%\footnote{Also see: \url{http://philipwfowler.wordpress.com/2013/12/19/the-oxford-software-carpentry-boot-camp-one-year-on/}}.
+%\footnote{\url{http://philipwfowler.wordpress.com/2013/12/19/the-oxford-software-carpentry-boot-camp-one-year-on/}}.
 
 \noindent {\textbf{Recommendation {\textrm{III}}:}} Software
 development skills should be regarded as fundamental literacies for
@@ -224,7 +248,7 @@ computational skills are taught as core at undergraduate and
 postgraduate level.
 
 % Recommendation IV
-\subsection{The Lingua Franca of Computational Science} 
+\subsection{{\emph{The Lingua Franca of Computational Science}}}
 
 There is no other scientific or technical field where its participants
 can just make up a non-principled artefact like a programming language
@@ -247,14 +271,14 @@ numbered.  Even though these proof scripts are really only ever going
 to be run by a machine, they seek to maintain the basic mathematical
 idea that a proof should be readable by another mathematician.
 
-High-level programming languages impose constraints like types: that you can
-never add a number and a string is the most basic example, but ML's
-functors provide principled ways of plugging in components with their
-implementations completely hidden. Aggressive type checking avoids a
-subset of bugs which can arise due to incorrectly written functions
-e.g. well publicised problems with a NASA Mars orbiter\footnote{See:
-\url{http://www.cnn.com/TECH/space/9909/30/mars.metric.02/}}.  A
-further example is a pressure coupling
+High-level programming languages impose constraints like types: that
+you can never add a number and a string is the most basic example, but
+ML's functors provide principled ways of plugging in components with
+their implementations completely hidden. Aggressive type checking
+avoids a subset of bugs which can arise due to incorrectly written
+functions e.g. well publicised problems with a NASA Mars
+orbiter\footnote{\url{http://www.cnn.com/TECH/space/9909/30/mars.metric.02/}}.
+A further example is a pressure coupling
 bug\footnote{\url{http://redmine.gromacs.org/issues/14}} in
 GROMACS~\cite{Hess2008}, which arose due to the inappropriate swapping
 of a pressure term with a stress tensor.  A further extension of
@@ -270,7 +294,7 @@ software helps hugely with the maintainability, robustness and
 openness of the software produced.
 
 % Recommendation V
-\subsection{Test It To See}
+\subsection{{\emph{Test It To See}}}
 
 Some models may be chaotic and influenced by floating-point errors
 (e.g. molecular dynamics), further frustrating testing. For example:
@@ -294,7 +318,7 @@ aim to link to/from publicly-shared code: shared code is inherently more
 test-able.
 
 % Recommendation VI
-\subsection{Lineage (or: ``Standing On The Shoulders Of Giants'')} 
+\subsection{{\emph{Lineage (or: ``Standing On The Shoulders Of Giants'')}}}
 
 Research software is not just software -- it is the instantiation of
 novel algorithms and data structures (or at least novel applications
@@ -314,7 +338,7 @@ CITATION
 files\footnote{\url{http://blog.rtwilson.com/encouraging-citation-of-software-introducing-citation-files/}}).
 
 % Recommendation VII
-\subsection{YMMV}
+\subsection{{\emph{YMMV}}}
 
 \begin{figure}[!ht]
 \centering
@@ -324,9 +348,9 @@ files\footnote{\url{http://blog.rtwilson.com/encouraging-citation-of-software-in
 \end{figure}
 
 The tweet in Figure~\ref{fig:overlyhonestmethod} is sad but worryingly
-true, highlighting the perils of reproducible research\footnote{Also
-see: \url{http://www.phdcomics.com/comics.php?f=1689}}. Often, the
-tool that the paper describes does not exist for download. Or runs
+true, highlighting the perils of reproducible
+research\footnote{\url{http://www.phdcomics.com/comics.php?f=1689}}. Often,
+the tool that the paper describes does not exist for download. Or runs
 only on one particular bespoke platform. Or might run for the author,
 for a while, but will `bit-rot' so quickly that even the author cannot
 compile it in a couple of month's time.\\
@@ -351,7 +375,7 @@ Section~\ref{sec:conclusion} for more on this.
 
 
 % Recommendation VIII
-\subsection{Data Representations and Formats}
+\subsection{{\emph{Data Representations and Formats}}}
 
 We often do not, and should not, care how things are stored on disk,
 what their precise representations are. But a common, constrained,
@@ -377,7 +401,7 @@ extensible internationally standardised representations and formats to
 facilitate sharing and re-use.
 
 % Recommendation IX
-\subsection{World Records}
+\subsection{{\emph{World Records}}}
 
 The benchmarks the tool describes are fashioned only for this instance
 of this time. They might claim to be from the Windows device driver
@@ -415,7 +439,7 @@ that journey. Such repositories would allow the tests to be taken and
 easily analysed by any competitor tool.
 
 % Recommendation X
-\subsection{Welcome to Web 2.0}
+\subsection{{\emph{Welcome to Web 2.0}}}
 
 Virtual machines (VMs) in the cloud also make the testing of scaling
 properties more simple.  If you have a tool that you claim is more
@@ -455,19 +479,45 @@ publications or other publicly-accessible datasets.
 the developer, to widen the testing and identify potential bugs.
 \end{enumerate}
 
-% \noindent{\textbf{This is how we imagine the future for research
-% software:}}\newline
+The whole premise of our previous paper~\cite{crick-et-al_recomp2014}
+is that {\emph{algorithms}} (implementations) and {\emph{models}}
+(benchmarks) are inextricably linked. Algorithms are designed for
+certain types of models; models, though created to mimic some physical
+reality, also serve to stress the current known algorithms. An
+integrated autonomous open cloud-based service can make this link explicit.
 
-Suppose you have come up with a better
-algorithm to deal with some standard problem.  You write up the paper
-on the algorithm, and you also push a C++ implementation of your
-algorithm to the our cloud environment's section on this standard problem.
+By developing a cloud-based, centralised service, which performs
+automated code compilation, testing and benchmarking (with associated
+auditing), we will link together published implementations of
+algorithms and input models. This will allow the prototype to link
+together software and data repositories, toolchains, workflows and
+outputs, providing a seamless automated infrastructure for the
+verification and validation of scientific models and in particular,
+performance benchmarks. The program of work will lead the cultural
+shift in both the short and long-term to move to a world in which
+computational reproducibility helps researchers achieve their goals,
+rather than being perceived as an overhead.
 
-The effect of pushing your implementation is to register your program
-as a possible competitor in this standard problem competition. There
-are several dozen widely-agreed tests on this problem already on our
-cloud environment's database. Maybe, after some negotiation due to
-your novel approach to this standard problem, you add some of your own
+A system as described here has several up-front benefits: it links
+research papers more closely to their outputs, making external
+validation easier and allows interested users to explore unaddressed
+sets of models. Critically, it helps researchers across computational
+science to be more productive, rather than reproducibility being an
+overhead on their day-to-day work. In the same way that tools such as
+GitHub make collaborating easier while simultaneously allowing
+effortless sharing, we envisage our system being similarly usable for
+sharing and testing algorithms, software, models and benchmarks
+online.
+
+Suppose you have come up with a better algorithm to deal with some
+standard problem.  You write up the paper on the algorithm, and you
+also push an implementation of your algorithm to the our cloud
+environment's section on this standard problem. The effect of pushing
+your implementation is to register your program as a possible
+competitor in this standard problem competition. There are several
+dozen widely-agreed tests on this problem already on our cloud
+environment's database. Maybe, after some negotiation due to your
+novel approach to this standard problem, you add some of your own
 tests to the database too.
 
 Pushing your code activates the environment's continuous integration
@@ -475,7 +525,12 @@ system.  The cloud pulls in all the dependencies your code needs, on
 the platforms you specify, and runs all the benchmarks. This happens
 every time you push. It also happens every time one of your
 dependencies (a library, a firmware upgrade for your platform, a new
-API) changes too.
+API) changes too. This system (see Figure~\ref{fig:workflow}) woud
+integrate with publicly available source code repositories, automates
+the build, testing and benchmarking of algorithms and benchmarks. It
+would allow testing models against competing algorithms, and the
+addition of new models to the test suite (either manually or from
+existing online repositories).
 
 \begin{figure}[!ht]
 \centering
@@ -489,11 +544,47 @@ issues in scientific disciplines that are underpinned by leveraging
 software and computational techniques, then the proposal above would
 bring together almost all of the points we have discussed in this
 paper to provide an open research infrastructure for all. There are
-already several web services that nearly do a number of part of
-this. Something more complete, and stamped with the authority of the
-major domain conferences/journals/professional societies, would mean
-that your code would never `bit-rot', and no one would have problems
-reproducing the implementation of your published algorithm.
+already several web services that nearly do all of this things (for
+example, a repository for disseminating the computational models
+associated with publications in the social and life
+sciences~\cite{rollins-et-al:2014}), so a service that can integrate
+most if not all of these features is possible. Such a service would
+then allow algorithms and models to evolve together, and be
+reproducible from the outset. Something more complete, and stamped
+with the authority of the major domain
+conferences/journals/professional societies, would mean that your code
+would never `bit-rot', and no one would have problems reproducing the
+implementation of your published algorithm.
+
+
+\section{Conclusions}
+
+Following the proposal of such a system, the question becomes:
+{\emph{how do we encourage widespread uptake, or even
+standardisation?}}  Such a service may appear non-trivial, given the
+large numbers of tools and workflows that could potentially require to
+be supported by the service. Furthermore, after such a service has
+been implemented, how do we ensure it is \emph{useful} and
+\emph{usable} for researchers.
+
+The benefits to the wider computational research community from a
+cultural change to favour reproducibility are clear and as such we
+should aim through software infrastructure and research workflows to
+mitigate these costs. Furthermore, we can reasonably expect the
+distinct needs of specific research communities to evolve over time,
+and initial implementations of the platform may require refinement in
+response to user feedback (supporting the vital cultural change by
+reducing overheads and improving the efficiency of researchers). As
+such, if the wider research community is to move to requiring
+reproducibility, it seems most reasonable that this is staggered over
+a number of years to allow for both of these elements to develop,
+until eventually all researchers are required to use the service.
+
+This proposed new infrastructure could thus have a profound impact on
+the way that computational science is performed, repositioning the
+role of models, algorithms and benchmarks and accelerating the
+research cycle, perhaps truly enabling a ``fourth paradigm'' of data
+intensive scientific discovery~\cite{hey:2009}.
 
 
 % BibTeX
