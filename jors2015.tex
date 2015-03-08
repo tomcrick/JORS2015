@@ -11,7 +11,8 @@
 
 
 % title
-\title{``Reproducibility-as-a-Service'':\\A Model for Reproducible Computational Research}
+\title{Towards ``Reproducibility-as-a-Service''}
+%\title{``Reproducibility-as-a-Service'':\\A Model for Reproducible Computational Research}
 %\title{``Can I Implement Your Algorithm?'':\\A Model for Reproducible Research Software}
 
 \author[1]{Tom Crick}
@@ -34,19 +35,20 @@
 \maketitle
 
 % Keywords:
-% Reproducibility, Benchmarks, Models, Cloud Services, e-Infrastructure,
-% Computational Science, Open Science
+% reproducible research; cyberinfrastructure; scientific workflows; computational
+% science; open science; data sharing; code sharing; best practices
+
 
 \begin{abstract}
 The reproduction and replication of novel results has become a major
 issue for a number of scientific disciplines. In computer science and
 related computational disciplines such as systems biology, the issues
 closely revolve around the ability to implement novel algorithms and
-approaches. Taking an approach from the literature and applying it to
-a new codebase frequently requires local knowledge missing from the
+models. Taking an approach from the literature and applying it to a
+new codebase frequently requires local knowledge missing from the
 published manuscripts and project websites. Alongside this issue,
-benchmarking, and the development of fair --- and widely available ---
-benchmark sets present another barrier.
+benchmarking, and the development of fair --- and publicly available
+--- benchmark sets present another barrier.
 
 In this paper, we outline several suggestions to address these issues,
 driven by specific examples from a range of scientific domains.
@@ -54,7 +56,7 @@ Finally, based on these suggestions, we propose a new open automated
 platform for scientific software development which effectively
 abstracts specific dependencies from the individual researcher and
 their workstation, allowing easy sharing and reproduction of
-results. This new e-infrastructure for computational science offers
+results. This new cyberinfrastructure for computational science offers
 the potential to incentivise a culture change and drive the adoption
 of new techniques to improve the efficiency of scientific exploration.
 \end{abstract}
@@ -62,10 +64,10 @@ of new techniques to improve the efficiency of scientific exploration.
 \section{Introduction}
 
 Marc Andreessen (co-author of Mosaic, the first widely used Web
-browser) famously stated in 2011 that ``{\emph{software is eating the
+browser) boldly stated in 2011 that ``{\emph{software is eating the
 world}}''~\cite{andreessen:2011}. It is true: we clearly live in a
 computational world, with our everyday communications, entertainment,
-shopping, security, banking, transportation, etc, all heavily
+shopping, banking, transportation, national security, etc, all heavily
 dependent on (or replaced by) software.
 
 This is particularly true for science and engineering. A 2012 report
@@ -95,12 +97,20 @@ papers~\cite{crick-et-al:2009a,Berdine2011SLAyer} with benchmarks and
 promises of code to be released in the near future.
 
 There are numerous reasons why the wider scientific community is in
-this state. We are experiencing significant changes in academic
-dissemination and publication, especially the open access movement,
-with new models being
-proposed~\cite{deroure:2010,stodden-et-al:2013,fursin+dubach:2014}. Thus,
-the reproduction and replication of reported scientific results has
-become a widely discussed topic within the scientific
+this state. We are currently undergoing significant changes to
+academic dissemination and publication, especially the open access
+movement, with new models being
+proposed~\cite{deroure:2010,stodden-et-al:2013,fursin+dubach:2014}. Journals
+such as Nature, PLoS Computational Biology and Bioinformatics
+explicitly require that source code and data is made available online
+under some form of open source license. While these initiative are
+great, they are often optional, seem piecemeal, and do little to
+enable verification or validation of scientific results at a later
+stage. Even within the same field, there are different ideas of what
+defines reproducibility.
+
+Nevertheless, the reproduction and replication of reported scientific
+results has become a widely discussed topic within the scientific
 community~\cite{barnes:2010,morin-et-al:2012,joppa-et-al:2013}.
 Whilst the retraction of several studies has drawn the focus of many
 commentators, automated systems, which allow easy reproduction of
@@ -119,8 +129,8 @@ is often seen to give your competitors an advantage, but we should be
 shining light into these ``black boxes''~\cite{morin-et-al:2012}. In
 essence: better software, better research~\cite{goble:2014}.
 
-Nevertheless, there has been previous work in this
-area~\cite{sim-et-al:2003,chirigati-et-al:2013,stodden+miguez:2014},
+Nevertheless, there is promising existing work in this
+area~\cite{sim-et-al:2003,chirigati-et-al:2013,stodden+miguez:2014,stodden-et-al:2015},
 as well as a number of manifestos for reproducible research and
 community initiatives, such as the Recomputation
 Manifesto~\cite{gent:2013}\footnote{\url{http://www.recomputation.org/}}
@@ -142,7 +152,7 @@ on the fundamental scientific tenets of openness and sharing.
 % Recommendation I
 \subsection{{\emph{Can I Implement Your Algorithm?}}}
 
-Reproducibility (replication, repeatability) is a fundamental tenet of
+Reproducibility (replication, repeatability, et al.) is a fundamental tenet of
 good science. Yet many descriptions of algorithms are too high-level,
 too obscure, too poorly-defined to allow an easy re-implementation by
 a third party. A step in the algorithm might say: ``{\emph{We pick an
@@ -159,10 +169,13 @@ implementable by any reader of that algorithm. This is subjective, of
 course. Therefore, we also recommend that relevant scientific
 conferences have a special track for papers that re-implement past
 papers' algorithms, techniques or tools, as well as incentives to
-support sharing of computational artefacts (for example, as number of
-high-profile computer science conferences now explicitly acknowledge
-the importance of reproducibility, promoting community-driven
-reviewing and validation; we have recently proposed something for the
+support sharing of computational artefacts; reproducibility should not
+just be discussed at conference and workshops convened explicitly for
+that purpose (for example, a number of high-profile computer science
+conferences now explicitly acknowledge the importance of
+reproducibility, promoting community-driven reviewing and
+validation\footnote{\url{http://ctuning.org/cm/wiki/index.php?title=Reproducibility}};
+we have recently proposed a new reproducibility model for the
 computer-aided formal analysis and verification research
 community~\cite{crick-et-al-cav}).
 
@@ -197,9 +210,9 @@ openness (GROMACS uses the GNU Lesser General Public License
 (LGPL)~\cite{Hess2008}, CHARMM and Desmond are Academic/Commercial
 software licences~\cite{Brooks2009,Bowers2006}, Amber and NAMD are
 custom open-like licences). Z3 is an example from the verification
-area: the code itself is not open source, but the MSR-LA license that allows
-the source code to be read, copied, forked for academic use, provides
-researchers in the field much more than
+area: the code itself is not open source, but the MSR-LA license that
+allows the source code to be read, copied, forked for academic use,
+provides researchers in the field much more than
 before~\cite{deMoura2012Z3open}.\\
  
 \noindent {\textbf{Recommendation {\textrm{II}}:}} There is little
@@ -209,7 +222,7 @@ browsing, modifying, and forking facilitates testing and comparison,
 and promotes competition. We recommend that code be published under an
 appropriate open source license~\cite{osl}; while we defer legal
 discussion of the specifics of any particular licences, BSD and Apache are good,
-flexible ones.
+flexible ones.\\
 % IANAL...
 
 Ultimately: set the code free. Put it on a public space such as
@@ -308,7 +321,15 @@ to alter the number of water molecules added to each system by
 one. This meant that the same simulation performed on different
 architectures would diverge. Similarly, in a different simulation
 engine, different neighbour searching strategies gave divergent
-simulations due to the differing order in which forces were summed.\\
+simulations due to the differing order in which forces were summed.
+
+A further example is the handling of pseudo-random number generation in
+Avida~\cite{ofria+wilke:2004}, an open source scientific software
+platform for conducting and analysing experiments with
+self-replicating and evolving computer programs. In order to produce
+consistent random number generation across platforms, it may be
+necessary to code bespoke random number generators within the system,
+which is not ideal for sharing and reproducibility.\\
 
 \noindent {\textbf{Recommendation {\textrm{V}}:}} Despite these
 challenges to testing, unshared code is ultimately untestable.
@@ -425,7 +446,7 @@ heavily curated. Every test/assertion should be justified. Papers
 should be penalised if they do not use these public benchmarks. While
 there are some domains in which it may not be immediately possible to
 share full benchmarks sets, this should be the exception (with
-justification) rather than the norm.
+justification) rather than the norm.\\
 
 A good example of some of these points is the RCSB Protein Data
 Bank\footnote{\url{http://www.pdb.org}} and Systems Biology Markup
@@ -448,7 +469,7 @@ to demonstrate how well the software scales for parallel calculations.
 Cloud computing is cheap, and getting cheaper. Algorithms that used to
 require massive HPC resources can now be run cheaply by bidding on the
 VM spot market. The Web is a great leveller: use and share workflows
-and web services~\cite{crick-et-al:2009b}.\\
+and web services~\cite{crick-et-al:2009b,oabarriaga-et-al:2014}.\\
 
 \noindent {\textbf{Recommendation {\textrm{X}}:}} The Web and the
 cloud really do open up a whole new way of working. Even small,
@@ -525,7 +546,7 @@ system.  The cloud pulls in all the dependencies your code needs, on
 the platforms you specify, and runs all the benchmarks. This happens
 every time you push. It also happens every time one of your
 dependencies (a library, a firmware upgrade for your platform, a new
-API) changes too. This system (see Figure~\ref{fig:workflow}) woud
+API) changes too. This system (presented in Figure~\ref{fig:workflow}) woud
 integrate with publicly available source code repositories, automates
 the build, testing and benchmarking of algorithms and benchmarks. It
 would allow testing models against competing algorithms, and the
@@ -544,9 +565,9 @@ issues in scientific disciplines that are underpinned by leveraging
 software and computational techniques, then the proposal above would
 bring together almost all of the points we have discussed in this
 paper to provide an open research infrastructure for all. There are
-already several web services that nearly do all of this things (for
-example, a repository for disseminating the computational models
-associated with publications in the social and life
+already several web services that already aim to do many of these
+things (for example, a repository for disseminating the computational
+models associated with publications in the social and life
 sciences~\cite{rollins-et-al:2014}), so a service that can integrate
 most if not all of these features is possible. Such a service would
 then allow algorithms and models to evolve together, and be
@@ -557,34 +578,54 @@ would never `bit-rot', and no one would have problems reproducing the
 implementation of your published algorithm.
 
 
-\section{Conclusions}
+\section{Next Steps}
 
 Following the proposal of such a system, the question becomes:
 {\emph{how do we encourage widespread uptake, or even
-standardisation?}}  Such a service may appear non-trivial, given the
-large numbers of tools and workflows that could potentially require to
-be supported by the service. Furthermore, after such a service has
-been implemented, how do we ensure it is \emph{useful} and
+standardisation?}}  Such a service would appear to be non-trivial,
+given the large numbers of tools and workflows that could potentially
+require to be supported by the service. Furthermore, after such a
+service has been implemented, how do we ensure it is \emph{useful} and
 \emph{usable} for researchers.
 
 The benefits to the wider computational research community from a
 cultural change to favour reproducibility are clear and as such we
-should aim through software infrastructure and research workflows to
-mitigate these costs. Furthermore, we can reasonably expect the
-distinct needs of specific research communities to evolve over time,
-and initial implementations of the platform may require refinement in
-response to user feedback (supporting the vital cultural change by
-reducing overheads and improving the efficiency of researchers). As
-such, if the wider research community is to move to requiring
-reproducibility, it seems most reasonable that this is staggered over
-a number of years to allow for both of these elements to develop,
-until eventually all researchers are required to use the service.
+should aim through software cyberinfrastructure and sharable,
+community curated research workflows to mitigate these
+costs. Furthermore, we can reasonably expect the distinct needs of
+specific research communities to evolve over time, and initial
+implementations of the platform may require refinement in response to
+user feedback (supporting the critical cultural change by improving
+the efficiency of researchers). As such, if the wider research
+community is to move to requiring reproducibility, it seems most
+reasonable that this is staggered over a number of years to allow for
+both of these elements to develop, until eventually all researchers
+are required to use the service.
 
-This proposed new infrastructure could thus have a profound impact on
-the way that computational science is performed, repositioning the
-role of models, algorithms and benchmarks and accelerating the
-research cycle, perhaps truly enabling a ``fourth paradigm'' of data
-intensive scientific discovery~\cite{hey:2009}.
+The key question for different research communities then becomes:
+{\emph{how to initialise this change?}} Such a requirement creates a
+set of new costs to researchers, both in terms of time spent ensuring
+that their tools work on the centralised system (in addition to their
+local implementation), but also potentially in terms of equipment (in
+terms of running the system). Such costs may be easier to bear for
+some groups compared to others, especially those with large research
+groups who can more easily distribute the tasks, and it is important
+that the service does not present a barrier to early career
+researchers and those with efficient budgets (this type of cost
+analysis is not unique to reproducibility efforts -- it has been
+estimated that a shift to becoming exclusively open access for a
+journal may lead to a ten-fold increase in computer science
+publication costs~\cite{vardi-cacm-2014}).
+
+Nevertheless, this proposed new cyberinfrastructure could have a
+profound impact on the way that computational science is performed,
+repositioning the role of models, algorithms and benchmarks and
+accelerating the research cycle, perhaps truly enabling a ``fourth
+paradigm'' of data intensive scientific discovery~\cite{hey:2009}. But
+ultimately, an open discussion and understanding of what
+reproducibility means for the wider computational science research
+community is important: we all need to explicitly state that this is
+worthwhile and address it, or don't bother doing it at all.
 
 
 % BibTeX
