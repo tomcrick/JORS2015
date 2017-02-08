@@ -449,13 +449,14 @@ architectures would diverge. Similarly, in a different simulation
 engine, different neighbour searching strategies gave divergent
 simulations due to the differing order in which forces were summed.
 
-A further example is the handling of pseudo-random number generation in
-Avida~\cite{ofria+wilke:2004}, an open source scientific software
+A further example is the handling of pseudo-random number generation
+in Avida~\cite{ofria+wilke:2004}, an open source scientific software
 platform for conducting and analysing experiments with
-self-replicating and evolving computer programs. In order to produce
-consistent random number generation across platforms, it may be
-necessary to code bespoke random number generators within the system,
-which is not ideal for sharing and reproducibility.\\
+self-replicating and evolving computer programs. While it may
+initially appear attractive to develop bespoke random number
+generators within a system for consistency or performance across
+platforms, this invariably adds complexity to your system and may
+inhibit sharing and reproducibility.\\
 
 \noindent {\textbf{Recommendation {\textrm{V}}:}} Despite these
 challenges to testing, unshared code is ultimately untestable.
