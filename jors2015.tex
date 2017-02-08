@@ -247,12 +247,17 @@ world-class research through software, developing software skills and
 raising the profile of research software engineers.
 
 Many scientists will not have had any formal, or even informal,
-training in scientific software development. Even basic training in software engineering
-concepts like version control, unit testing, build tools, etc, can help improve the
-quality of the software written enormously~\cite{wilson2006}.
-Interestingly, many of these concepts are taught to computer science
-undergraduates, but it could be argued that they are taught at the
-wrong time of their careers, without the experience of complex,
+training in scientific software development. Even basic training in
+software engineering concepts like version control (git, mercurial),
+unit testing (tests written to exercise the smallest testable parts of
+a system, like a function exported from a module), regression testing
+(a test framework that ensures that previous results are maintained
+over the changes in the source code), build tools (Make, scons), etc,
+can help improve the quality of the software written
+enormously~\cite{wilson2006}.  Interestingly, many of these concepts
+are taught to computer science undergraduates, but it could be argued
+that they are taught at the wrong time of their careers, without the
+experience of complex,
 long-running projects.\\
 %\footnote{\url{http://philipwfowler.wordpress.com/2013/12/19/the-oxford-software-carpentry-boot-camp-one-year-on/}}.
 
@@ -307,38 +312,6 @@ papers~\cite{Miller2006}, due to a bug which inverted the phases.\\
 principled, high-level programming language in which to write your
 software helps hugely with the maintainability, robustness and
 openness of the software produced.
-
-% Recommendation V
-\subsection{{\emph{Test It To See}}}
-
-Some models may be chaotic and influenced by floating-point errors
-(e.g. molecular dynamics), further frustrating testing. For example:
-Sidekick is an automated tool for building molecular models and
-performing simulations~\cite{Hall2014Sidekick}. Each system is
-simulated from an different initial random seed, and under most
-circumstances this is the only difference expected between
-replicas. However, on a mixed cluster with both AMD and Intel
-microprocessors on the nodes, the difference in architecture was found
-to alter the number of water molecules added to each system by
-one. This meant that the same simulation performed on different
-architectures would diverge. Similarly, in a different simulation
-engine, different neighbour searching strategies gave divergent
-simulations due to the differing order in which forces were summed.
-
-A further example is the handling of pseudo-random number generation in
-Avida~\cite{ofria+wilke:2004}, an open source scientific software
-platform for conducting and analysing experiments with
-self-replicating and evolving computer programs. In order to produce
-consistent random number generation across platforms, it may be
-necessary to code bespoke random number generators within the system,
-which is not ideal for sharing and reproducibility.\\
-
-\noindent {\textbf{Recommendation {\textrm{V}}:}} Despite these
-challenges to testing, unshared code is ultimately untestable.
-Testing new complex scientific software is difficult -- until the
-software is complete, unit tests may not be available. You should thus
-aim to link to/from publicly-shared code: shared code is inherently more
-test-able.
 
 % Recommendation VI
 \subsection{{\emph{Lineage (or: ``Standing On The Shoulders Of Giants'')}}}
@@ -460,6 +433,39 @@ Termination Problems Data
 Base\footnote{\url{http://termination-portal.org/wiki/TPDB}} are on
 that journey. Such repositories would allow the tests to be taken and
 easily analysed by any competitor tool.
+
+% Recommendation V
+\subsection{{\emph{Test It To See}}}
+
+Some models may be chaotic and influenced by floating-point errors
+(e.g. molecular dynamics), further frustrating testing. For example:
+Sidekick is an automated tool for building molecular models and
+performing simulations~\cite{Hall2014Sidekick}. Each system is
+simulated from an different initial random seed, and under most
+circumstances this is the only difference expected between
+replicas. However, on a mixed cluster with both AMD and Intel
+microprocessors on the nodes, the difference in architecture was found
+to alter the number of water molecules added to each system by
+one. This meant that the same simulation performed on different
+architectures would diverge. Similarly, in a different simulation
+engine, different neighbour searching strategies gave divergent
+simulations due to the differing order in which forces were summed.
+
+A further example is the handling of pseudo-random number generation in
+Avida~\cite{ofria+wilke:2004}, an open source scientific software
+platform for conducting and analysing experiments with
+self-replicating and evolving computer programs. In order to produce
+consistent random number generation across platforms, it may be
+necessary to code bespoke random number generators within the system,
+which is not ideal for sharing and reproducibility.\\
+
+\noindent {\textbf{Recommendation {\textrm{V}}:}} Despite these
+challenges to testing, unshared code is ultimately untestable.
+Testing new complex scientific software is difficult -- until the
+software is complete, unit tests may not be available. You should thus
+aim to link to/from publicly-shared code: shared code is inherently more
+test-able.
+
 
 % Recommendation X
 \subsection{{\emph{Welcome to Web 2.0}}}
