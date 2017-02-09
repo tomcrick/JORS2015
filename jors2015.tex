@@ -164,29 +164,28 @@ the first one do?  Why will any element suffice? Sometimes the author
 would like to give more implementation detail but is constrained by
 the paper page limit. Sometimes the authors' description in-lines
 other algorithms or data structures that perhaps only that author is
-familiar with.\\
+familiar with.
 
-\noindent {\textbf{Recommendation {\textrm{I}}:}} We recommend here
-that a paper must describe the algorithm in such a way that it is
-implementable by any reader of that algorithm. This is subjective, of
-course. Therefore, we also recommend that relevant scientific
-conferences have a special track for papers that re-implement past
-papers' algorithms, techniques or tools, as well as incentives to
-support sharing of computational artefacts; reproducibility should not
-just be discussed at conference and workshops convened explicitly for
-that purpose (for example, a number of high-profile computer science
-conferences now explicitly acknowledge the importance of
-reproducibility, promoting community-driven reviewing and
-validation\footnote{\url{http://ctuning.org/cm/wiki/index.php?title=Reproducibility}};
-we have recently proposed a new reproducibility model for the
-computer-aided formal analysis and verification research
-community~\cite{crick-et-al-cav}).
+Until recently, reproducibility was only discussed at conferences and
+workshops convened explicitly for that purpose. This is changing, and
+a number of high-profile computer science conferences like POPL and
+PLDI now explicitly acknowledge the importance of reproducibility,
+promoting community-driven reviewing and validation of software
+artefacts. \\
 
+\noindent {\textbf{Recommendation {\textrm{I}}:}} We recommend that a
+paper must describe the algorithm in such a way that it is
+implementable by any reader of that algorithm. The description is, of
+course, subjective, but to help encourage better descriptions, we also
+recommend that --- in addition to having incentives to support sharing
+of computational artefacts --- relevant scientific conferences also
+have a special track for papers that re-implement past papers'
+algorithms, techniques or tools.
 
 % Recommendation II
 \subsection{{\emph{Set The Code Free}}}
 
-There can be no better proof that your algorithm works, than if you
+There can be no better proof of your algorithm working, than if you
 provide the source code of an implementation. Software development is
 hard, but sharing and re-using code is relatively easy.
 
@@ -215,21 +214,26 @@ custom open-like licences). Z3 is an example from the verification
 area: the code itself is not open source, but the MSR-LA license that
 allows the source code to be read, copied, forked for academic use,
 provides researchers in the field much more than
-before~\cite{deMoura2012Z3open}.\\
+before~\cite{deMoura2012Z3open}.
+
+Even ignoring licensing issues, sometimes the source is not made open
+because the author thinks that it isn't quite finished. 
+But you should follow the ``release early, release often'' mantra, and
+further release somewhere public like GitHub, where it is easy to
+share and fork. Your code is good enough~\cite{barnes:2010}.
+\\
  
 \noindent {\textbf{Recommendation {\textrm{II}}:}} There is little
 doubt that, if science wants to be open and free, then the code that
 underlies it too needs to be open and free. Code that is available for
-browsing, modifying, and forking facilitates testing and comparison,
-and promotes competition. We recommend that code be published under an
-appropriate open source license~\cite{osl}; while we defer legal
-discussion of the specifics of any particular licences, BSD and Apache are good,
+browsing, modifying, and forking, facilitates testing and comparison.
+We recommend that code be published under an appropriate open source
+license~\cite{osl}; while we defer legal discussion of the specifics
+of any particular licences, BSD and Apache are good,
 flexible ones.\\
 % IANAL...
 
-\noindent Ultimately: set the code free and make it available on a public
-repository such as GitHub, where it is easy to share and fork -- it is
-good enough~\cite{barnes:2010}.
+
 
 % Recommendation III
 \subsection{{\emph{Be A Better Person}}}
@@ -309,8 +313,9 @@ papers~\cite{Miller2006}, due to a bug which inverted the phases.\\
 \noindent {\textbf{Recommendation {\textrm{IV}}:}} The use of a
 principled, high-level, typed programming language in which to write
 your software helps hugely with the maintainability, robustness and
-openness of the software produced. Use Typescript or Flow rather than
-plain old Javascript; use Hack rather than PHP. 
+openness of the software produced. Even in web frontend work, you have
+choices: use Typescript or Flow rather than plain old Javascript; use
+Hack rather than PHP.
 
 % Recommendation V
 \subsection{{\emph{Lineage (or: ``Standing On The Shoulders Of Giants'')}}}
@@ -323,7 +328,7 @@ of data structures). Thus, lineage is important:\\
 include links to papers publishing key algorithms and the code should
 include explicit relationships to other projects on the repository
 (i.e. {\emph{Project B}} was branched from {\emph{Project A}}). This
-ensure that both the researchers and software developers working
+ensures that both the researchers and software developers working
 upstream of the current project are properly credited, encouraging
 future sharing and development. Remember, the people who did the
 research are not necessarily the same people as the developers and
@@ -350,8 +355,8 @@ only on one particular bespoke platform. Or might run for the author,
 for a while, but will `bit-rot' so quickly that even the author cannot
 compile it in a couple of month's time.\\
 
-\noindent {\textbf{Recommendation {\textrm{VI}}:}} Providing the
-source code of the tool helps, of course. But you must also provide
+\noindent {\textbf{Recommendation {\textrm{VI}}:}} Definitely provide the
+source code of the tool. But you must also provide
 details of precisely \emph{how} you built and wrote the software. For
 example:
 
