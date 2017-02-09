@@ -312,14 +312,14 @@ your software helps hugely with the maintainability, robustness and
 openness of the software produced. Use Typescript or Flow rather than
 plain old Javascript; use Hack rather than PHP. 
 
-% Recommendation VI
+% Recommendation V
 \subsection{{\emph{Lineage (or: ``Standing On The Shoulders Of Giants'')}}}
 
 Research software is not just software -- it is the instantiation of
 novel algorithms and data structures (or at least novel applications
 of data structures). Thus, lineage is important:\\
 
-\noindent {\textbf{Recommendation {\textrm{VI}}:}} Code should always
+\noindent {\textbf{Recommendation {\textrm{V}}:}} Code should always
 include links to papers publishing key algorithms and the code should
 include explicit relationships to other projects on the repository
 (i.e. {\emph{Project B}} was branched from {\emph{Project A}}). This
@@ -332,7 +332,7 @@ appropriately with citations (a good way of doing this is the use of
 CITATION
 files\footnote{\url{http://blog.rtwilson.com/encouraging-citation-of-software-introducing-citation-files/}}).
 
-% Recommendation VII
+% Recommendation VI
 \subsection{{\emph{YMMV}}}
 
 \begin{figure}[!ht]
@@ -350,7 +350,7 @@ only on one particular bespoke platform. Or might run for the author,
 for a while, but will `bit-rot' so quickly that even the author cannot
 compile it in a couple of month's time.\\
 
-\noindent {\textbf{Recommendation {\textrm{VII}}:}} Providing the
+\noindent {\textbf{Recommendation {\textrm{VI}}:}} Providing the
 source code of the tool helps, of course. But you must also provide
 details of precisely \emph{how} you built and wrote the software. For
 example:
@@ -369,7 +369,7 @@ cloud environments can make it easier; see
 Section~\ref{sec:conclusion} for more on this.
 
 
-% Recommendation VIII
+% Recommendation VII
 \subsection{{\emph{Data Representations and Formats}}}
 
 We often do not, and should not, care how things are stored on disk,
@@ -390,12 +390,12 @@ variable, introducing the possibility for errors. In the
 BioModelAnalyzer tool~\cite{Benque2012}, the XML contains \emph{only}
 the modifiable parameters limiting the possibility for error.\\
 
-\noindent {\textbf{Recommendation {\textrm{VIII}}:}} Avoid creating
+\noindent {\textbf{Recommendation {\textrm{VII}}:}} Avoid creating
 new representations when common formats already exist. Use existing
 extensible internationally standardised representations and formats to
 facilitate sharing and re-use.
 
-% Recommendation IX
+% Recommendation VIII
 \subsection{{\emph{World Records}}}
 
 The benchmarks the tool describes are fashioned only for this instance
@@ -413,7 +413,7 @@ muddy icy track, weighing him down with \num{50}\si{\kilogram} of
 excess weight. Given this setup, you could surely hope to beat his
 \num{9.58}\si{\second} time on a shorter length track.\\
 
-\noindent {\textbf{Recommendation {\textrm{IX}}:}} Benchmarks should
+\noindent {\textbf{Recommendation {\textrm{VIII}}:}} Benchmarks should
 be public. They should allow anyone to contribute, implying that the
 tests are in a standard format. Further, these benchmarks must be
 heavily curated. Every test/assertion should be justified. Papers
@@ -433,7 +433,7 @@ Base\footnote{\url{http://termination-portal.org/wiki/TPDB}} are on
 that journey. Such repositories would allow the tests to be taken and
 easily analysed by any competitor tool.
 
-% Recommendation V
+% Recommendation IX
 \subsection{{\emph{Test It To See}}}
 
 Some models may be chaotic and influenced by floating-point errors
@@ -459,7 +459,7 @@ generators within a system for consistency or performance across
 platforms, this invariably adds complexity to your system and may
 inhibit sharing and reproducibility.\\
 
-\noindent {\textbf{Recommendation {\textrm{V}}:}} Despite these
+\noindent {\textbf{Recommendation {\textrm{IX}}:}} Despite these
 challenges to testing, unshared code is ultimately untestable.
 Testing new complex scientific software is difficult -- until the
 software is complete, unit tests may not be available. You should aim
