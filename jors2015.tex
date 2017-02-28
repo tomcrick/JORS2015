@@ -139,7 +139,7 @@ as well as a number of manifestos for reproducible research and
 community
 initiatives~\cite{gent:2013,fursin-et-al:2014,ReproResearch2010,collberg-et-al:2014,Bailey_setthe,DBLP:journals/corr/JamesWS14},
 along with curated recommendations on where to publish research
-software\footnote{\url{http://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-software}}
+software (\url{http://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-software})
 and the legal situation~\cite{stodden2008}.
 
 However, things can, should and need to be much better if we want to 
@@ -242,10 +242,10 @@ flexible ones.\\
 If you have the appropriate skills and the experience, you can always
 create better software. We have seen the emergence of successful
 initiatives, such as the Software Sustainability
-Institute\footnote{\url{http://www.software.ac.uk/}}, Software
-Carpentry\footnote{\url{http://software-carpentry.org/}} and the UK
+Institute (\url{http://www.software.ac.uk/}), Software
+Carpentry (\url{http://software-carpentry.org/}) and the UK
 Community of Research Software
-Engineers\footnote{\url{http://www.rse.ac.uk}}, in cultivating
+Engineer (\url{http://www.rse.ac.uk}), in cultivating
 world-class research through software, developing software skills and
 raising the profile of research software engineers.
 
@@ -300,9 +300,9 @@ ML's functors provide principled ways of plugging in components with
 their implementations completely hidden. Aggressive type checking
 avoids a subset of bugs which can arise due to incorrectly written
 functions e.g. well publicised problems with a NASA Mars
-orbiter\footnote{\url{http://www.cnn.com/TECH/space/9909/30/mars.metric.02/}}.
+orbiter (\url{http://www.cnn.com/TECH/space/9909/30/mars.metric.02/}).
 A further example is a pressure coupling
-bug\footnote{\url{http://redmine.gromacs.org/issues/14}} in
+bug (\url{http://redmine.gromacs.org/issues/14}) in
 GROMACS~\cite{Hess2008}, which arose due to the inappropriate swapping
 of a pressure term with a stress tensor.  A further extension of
 types, a concept called units of measure that is implemented in
@@ -336,7 +336,7 @@ research are not necessarily the same people as the developers and
 maintainers of the software, so it is important to reward both
 appropriately with citations (a good way of doing this is the use of
 CITATION
-files\footnote{\url{http://blog.rtwilson.com/encouraging-citation-of-software-introducing-citation-files/}}).
+files \url{http://blog.rtwilson.com/encouraging-citation-of-software-introducing-citation-files/}).
 
 % Recommendation VI
 \subsection{{\emph{YMMV}}}
@@ -350,7 +350,7 @@ files\footnote{\url{http://blog.rtwilson.com/encouraging-citation-of-software-in
 
 The tweet in Figure~\ref{fig:overlyhonestmethod} is sad but worryingly
 true, highlighting the perils of reproducible
-research\footnote{\url{http://www.phdcomics.com/comics.php?f=1689}}. Often,
+research (\url{http://www.phdcomics.com/comics.php?f=1689}). Often,
 the tool that the paper describes does not exist for download. Or runs
 only on one particular bespoke platform. Or might run for the author,
 for a while, but will `bit-rot' so quickly that even the author cannot
@@ -382,7 +382,7 @@ We often do not, and should not, care how things are stored on disk,
 what their precise representations are. But a common, constrained,
 standard representation is good for passing tests or models around
 between different tools. A properly described representation, like the
-SMT-LIB format\footnote{\url{http://smt-lib.org}} for Satisfiability
+SMT-LIB format (\url{http://smt-lib.org}) for Satisfiability
 Modulo Theory (SMT) solvers, where both the syntax and semantics are
 well understood, hugely aids developing tools, techniques and
 benchmarks.
@@ -394,7 +394,8 @@ expressed in SMV format, but this would mean that standard
 qualitative/Boolean network behaviours have to be hard-coded for each
 variable, introducing the possibility for errors. In the
 BioModelAnalyzer tool~\cite{Benque2012}, the JSON contains \emph{only}
-the modifiable parameters limiting the possibility for error.\\
+the modifiable parameters limiting the possibility for error. The 
+SBML-Qual standard achieves a similar goal for logical models \cite{Chaouiya2013}.\\
 
 \noindent {\textbf{Recommendation {\textrm{VII}}:}} Avoid creating
 new representations when common formats already exist. Use existing
@@ -429,20 +430,20 @@ share full benchmarks sets, this should be the exception (with
 justification) rather than the norm.\\
 
 A good example of some of these points is the RCSB Protein Data
-Bank\footnote{\url{http://www.pdb.org}} and Systems Biology Markup
+Bank (\url{http://www.pdb.org}) and Systems Biology Markup
 Language~\cite{Chaouiya2013}. The software ones we know of,
 the SMT
-Competition\footnote{\url{http://smtcomp.sourceforge.net/2014/}},
-SV-COMP\footnote{\url{http://sv-comp.sosy-lab.org/2015/}} and
+Competition (\url{http://smtcomp.sourceforge.net/2014/}),
+SV-COMP (\url{http://sv-comp.sosy-lab.org/2015/}) and
 Termination Problems Data
-Base\footnote{\url{http://termination-portal.org/wiki/TPDB}} are on
+Base (\url{http://termination-portal.org/wiki/TPDB}) are on
 that journey. Such repositories would allow the tests to be taken and
 easily analysed by any competitor tool. Some communities go further;
 the Critical assessment of methods of protein structure prediction
 and prediction of interactions (CASP and CAPRI)\cite{Moult2015,Lensink2017} communities present 
 a single-blind test of protein folding and docking
 algorithms annually, allowing open competition on a level playing 
-field. Similarly the DREAM challenges\footnote{\url{http://dreamchallenges.org/}} 
+field. Similarly the DREAM challenges (\url{http://dreamchallenges.org/}) 
 attempt to address large scale problems through open competition.
 
 % Recommendation IX
@@ -499,8 +500,8 @@ tool and its tests will allow users who are not able to install
 necessary dependencies to explore the running of the tool
 \cite{Hall2014}. Ultimately, this can lead to making an ``executable
 paper'' appear on the Internet. The interactive {\em Try
-F\#}\footnote{\url{http://www.tryfsharp.org/Learn}} and Z3
-tutorials\footnote{\url{http://rise4fun.com/Z3/tutorial/guide}} are a
+F\#}(\url{http://www.tryfsharp.org/Learn}) and Z3
+tutorials (\url{http://rise4fun.com/Z3/tutorial/guide}) are a
 great start that begin to expose what can be done in this area.
 % removed: ~\cite{tryFsharp} ~\cite{Z3tutorial}
 
@@ -518,7 +519,7 @@ and running tests contributed in public (``Data Representations'',
 ``World Records'') in a completely reproducible regime.
 
 The service we describe here can be seen as a specification. We
-haven't built it, but many servics like travis-ci or Azure VSTS
+haven't built it, but many services like travis-ci or Azure VSTS
 provide some of the mechanical parts of it. 
 
 A service for reproducibility is intended to play three important
