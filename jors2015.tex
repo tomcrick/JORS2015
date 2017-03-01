@@ -53,9 +53,9 @@ missing from the published manuscripts and project websites. Alongside
 this issue, benchmarking, and the development of open, transparent and
 fair benchmark sets present another barrier.
 
-In this paper, we outline several suggestions to address these issues,
+In this paper, we outline several recommendations to address these issues,
 driven by specific examples from a range of scientific domains.
-Finally, based on these suggestions, we propose a prototype open
+Based on these recommendations, we propose a prototype open
 automated platform for scientific software development which
 effectively abstracts specific dependencies from the individual
 researcher and their workstation, allowing easy sharing and
@@ -74,7 +74,7 @@ computational world, with our everyday communications, entertainment,
 shopping, banking, transportation, national security, etc, all heavily
 data-driven and largely overtaken by software.
 
-This is particularly true for science and engineering. A 2012 report
+Andreessen's statement is particularly true for science and engineering. A 2012 report
 by the Royal Society stated that computational techniques have
 ``{\emph{moved on from assisting scientists in doing science, to
 transforming both how science is done and what science is
@@ -661,6 +661,25 @@ Ultimately though, an open discussion and understanding of what
 reproducibility means for the wider computational science research
 community is important: we all need to explicitly state that this is
 worthwhile and address it, or don't bother doing it at all.
+
+\section{A note on rewriting the WSSSPE paper}
+
+Many of the ideas, comments --- even attitudes --- in this paper come 
+from the authors' experience in programming, programming languages, 
+software. We have started from the Marc Andreessen 
+comment that opens this paper. In editing this paper from it's 
+original WSSSPE workshop form,  we realized that one assumption that 
+seems to run through the manuscript  is that the behaviours we think 
+are good are in fact those that can be enforced in software. 
+Take mutability of variables in programming as an example. Mutability 
+increases the scope for bugs, so modern programming languages like OCaml 
+or C++14 enforce immutability at the language or library level. But 
+in fact immutability leads very naturally to state-less or de novo
+build environments, and so to the guideline that "software must be compileable
+with de novo continuous integration". 
+And, similarly, so does the issue of openly publishing your tool chain:
+it too must be compileable in a from-scratch build environment to be of 
+use to anyone else. 
 
 
 % BibTeX
