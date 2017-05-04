@@ -76,82 +76,87 @@ computational world, with our everyday communications, entertainment,
 shopping, banking, transportation, national security, etc, all heavily
 data-driven and largely overtaken by software.
 
-Andreessen's statement is particularly true for science and engineering. A 2012 report
-by the Royal Society stated that computational techniques have
-``{\emph{moved on from assisting scientists in doing science, to
-transforming both how science is done and what science is
-done}}''~\cite{rssaaoe:2012}. Many of the examples discussed in this
-paper exploit a fundamental advantage of computer science
-and more broadly, computational science: the unique ability to share
-the raw outputs of their work as software and datafiles. New
-experiments, simulations, models, benchmarks, even proofs cannot be
-done without software. This software does not consist of simple
-hack-together, use-once, throw-away scripts; scientific software
-repositories contain thousands, perhaps millions, of lines of code and
-they increasingly need to be actively supported and maintained. More
-importantly, with reproducibility being a fundamental tenet of
-science, they need to be re-useable.
+Andreessen's statement is particularly true for science and
+engineering. A 2012 report by the UK's Royal Society stated that
+computational techniques have ``{\emph{moved on from assisting
+scientists in doing science, to transforming both how science is done
+and what science is done}}''~\cite{rssaaoe:2012}. Many of the examples
+discussed in this paper exploit a fundamental advantage of computer
+science and more generally, computational science: the unique ability
+for researchers to share the raw outputs of their work as software and
+datafiles. New experiments, simulations, models, benchmarks, even
+proofs increasingly cannot be done without software. This software
+does not consist of simple hack-together, use-once, throw-away
+scripts; research software repositories contain thousands, perhaps
+millions, of lines of code and they increasingly need to be actively
+supported and maintained. More importantly, with reproducibility being
+a fundamental tenet of science, they need to be open and re-useable.
 
 However, if we closely analyse the scientific literature related to
 software tools it often does not appear to be adhering to these
-rules~\cite{nature:2011}. How many of them are reproducible? How many
-explain their experimental methodologies, in particular the basis for
-their benchmarking? In particular, can we (re)build the
-code~\cite{collberg-et-al:2014}? We, the authors, are perhaps as
-guilty as anyone in the past, where we have published
+rules~\cite{nature:2011,alberts-et-al:2015}. How many of them are open
+and available? How many explain their experimental methodologies, in
+particular the basis for their benchmarking? In particular, can we
+(re)build the code?~\cite{collberg+proebstring:2016} We, the authors, are
+perhaps as guilty as anyone in the past, where we have published
 papers~\cite{crick-et-al:2009a,Berdine2011SLAyer} with benchmarks and
-promises of code to be released in the near future.
+promises of code to be released in the near future which depreciate as
+you move onto the next project.
 
-There are numerous reasons why the wider scientific community is in
-this state. We are currently undergoing significant changes to
-academic dissemination and publication, especially the open access
-movement, with new models being
-proposed~\cite{deroure:2010,stodden-et-al:2013,fursin+dubach:2014}. Journals
-such as Nature, PLoS Computational Biology and Bioinformatics
-explicitly require that source code and data is made available online
-under some form of open source license. While these initiatives are
-great, they are often optional, seem piecemeal, and do little to
-enable verification or validation of scientific results at a later
-stage. Even within the same field, there are different ideas of what
-defines reproducibility.
+There are various reasons why the wider scientific community is in
+this position. We are currently undergoing significant changes to
+models of academic dissemination, especially considering the open
+\{access,data,research\} movements, with new models being
+proposed~\cite{deroure:2010,stodden-et-al:2013,fursin+dubach:2014}. Now,
+numerous ``high-impact'' journals explicitly require that source code
+and data is made available online under some form of open source
+license, but there still exists large disciplinary gaps. While these
+initiatives are great, they are often optional, seem piecemeal, and do
+little to enable the verification and validation of scientific results
+at a later stage. Even within the same field, there are different
+ideas of what defines reproducibility~\cite{nasem:2016}.
 
 Nevertheless, the reproduction and replication of reported scientific
 results has become a widely discussed topic within the scientific
 community~\cite{barnes:2010,morin-et-al:2012,joppa-et-al:2013}.
-Whilst the retraction of several studies has drawn the focus of many
-commentators, automated systems, which allow easy reproduction of
-results, offer the potential to improve the efficiency of scientific
-exploration and drive the adoption of new techniques. However, just
-publishing (linked) scientific data is not enough to ensure the
-required reusability~\cite{bechhofer-et-al:2013}. There exists a wider
+Whilst the increasing number of retractions of studies across a
+variety of disciplines has drawn the focus of many commentators,
+automated systems, which allow easy reproduction of results, offer the
+potential to improve the efficiency of scientific exploration and
+drive the adoption of new techniques. However, just publishing
+(linked) scientific data is not enough to ensure the required
+reusability~\cite{bechhofer-et-al:2013}. There exists a wider
 socio-cultural problem that pervades the scientific community, with
 estimates that as much as 50\% of published studies, even those in
 top-tier academic journals, cannot be repeated with the same
-conclusions by an industrial lab~\cite{osherovich:2011}. There are
-numerous non-technical impediments to making software maintainable and
-re-useable. The pressure to ``make the discovery'' and publish quickly
-disincentivises careful software curation. Releasing code prematurely
-is often seen to give your competitors an advantage, but we should be
-shining light into these ``black boxes''~\cite{morin-et-al:2012}. In
-essence: better software, better research~\cite{goble:2014}.
+conclusions by an industrial
+lab~\cite{osherovich:2011,hesman-saey:2015}. There are numerous
+non-technical impediments to making software maintainable and
+re-useable. The pressure to ``make the discovery'', publish quickly
+and move onto the next project disincentivises careful software
+curation and preservation. Releasing code prematurely is often seen to
+give your competitors an advantage, but we should be shining light
+into these ``black boxes''~\cite{morin-et-al:2012}; in essence: better
+software, better research~\cite{goble:2014}.
 
-There is promising existing work in this
-area~\cite{sim-et-al:2003,chirigati-et-al:2013,stodden+miguez:2014,stodden-et-al:2015},
-as well as a number of manifestos for reproducible research and
-community
-initiatives~\cite{gent:2013,fursin-et-al:2014,ReproResearch2010,collberg-et-al:2014,Bailey_setthe,DBLP:journals/corr/JamesWS14},
-along with curated recommendations on where to publish research
-software (\url{http://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-software})
-and the legal situation~\cite{stodden2008}.
-
-However, things can, should and need to be much better if we want to 
-keep to the scientific tenets of openness and sharing. Building upon
-previous work~\cite{crick-et-al_wssspe2}, we present a call to action,
-along with a set of recommendations which we hope will lead to better,
-more sustainable, more re-useable software, to move towards an
-imagined future practice and usage of scientific software
-development. We also propose a specification for a service that
-automates many of our recommendations. 
+However, there is promising existing work in this
+area~\cite{chirigati-et-al:2013,stodden+miguez:2014,stodden-et-al:2015,stodden-et-al:2016},
+with a variety of manifestos for reproducible research and community
+initiatives~\cite{gent:2013,fursin-et-al:2014,ReproResearch2010,Bailey_setthe,DBLP:journals/corr/JamesWS14},
+top tips and ``ten simple
+rules''~\cite{prlic+proctor:2012,masum-et-al:2013,sandve-et-al:2013,osborne-et-al:2013,goodman-et-al:2014,crick-et-al-irreprod:2015,list-et-al:2017},
+as well as analysis of the legal situation from a licensing and
+copyright perspective~\cite{stodden:2008}. Things can, should and need
+to be much better if we want to uphold and maintain the scientific
+tenets of openness and sharing. Building upon previous
+work~\cite{crick-et-al_wssspe2,crick-et-al_recomp2014}, we present a
+call to action, along with a set of recommendations which we hope will
+lead to better, more sustainable, more re-useable software, to move
+towards an imagined future practice and usage of scientific software
+development. We also propose a high-level specification for a service
+that would automate many of our recommendations.
+% along with curated recommendations on where to publish research
+% software (\url{http://www.software.ac.uk/resources/guides/which-journals-should-i-publish-my-software})
 
 \section{We Need to Talk About Reproducibility}
 
