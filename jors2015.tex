@@ -69,7 +69,7 @@ exploration.
 
 \section{Introduction}
 
-Marc Andreessen (co-author of Mosaic, the first widely used Web
+Marc Andreessen (co-author of Mosaic, the first widely used web
 browser) boldly stated in 2011 that ``{\emph{software is eating the
 world}}''~\cite{andreessen:2011}. This is true: we live in a
 computational world, with our everyday communications, entertainment,
@@ -163,38 +163,38 @@ that would automate many of our recommendations.
 % Recommendation I
 \subsection{{\emph{Can I Implement Your Algorithm?}}}
 
-Reproducibility is a fundamental tenet of
-good science. Yet many descriptions of algorithms are too high-level,
-too obscure, too poorly-defined to allow an easy re-implementation by
-a third party. A step in the algorithm might say: ``{\emph{We pick an
-element from the frontier set}}'' but which element do you pick? Will
-the first one do?  Why will any element suffice? Sometimes the author
-would like to give more implementation detail but is constrained by
-the paper page limit. Sometimes the authors' description in-lines
-other algorithms or data structures that perhaps only that author is
-familiar with.
+Reproducibility is a fundamental tenet of high-quality research. Yet
+many descriptions of algorithms are too high-level, too obscure, too
+poorly-defined to allow an easy re-implementation by a third party. A
+step in the algorithm might say: ``{\emph{We pick an element from the
+frontier set}}'' but which element do you pick? Will the first one do?
+Why will any element suffice? Sometimes the author would like to give
+more implementation detail but is constrained by an arbitrary page
+limit of a conference or journal paper. Sometimes the authors'
+description in-lines other algorithms or data structures that perhaps
+only that author is familiar with.
 
 Until recently, reproducibility was only discussed at conferences and
 workshops convened explicitly for that purpose. This is changing, and
-a number of high-profile computer science conferences like POPL and
-PLDI now explicitly acknowledge the importance of reproducibility,
-promoting community-driven reviewing and validation of software
-artefacts. \\
+a number of high-profile computer science venues such as the ACM
+SIGPLAN conferences POPL and PLDI now explicitly acknowledge the
+importance of reproducibility, promoting community-driven reviewing
+and validation of software artefacts. \\
 
 \noindent {\textbf{Recommendation {\textrm{I}}:}} We recommend that a
 paper must describe the algorithm in such a way that it is
-implementable by any reader of that algorithm. The description is, of
-course, subjective, but to help encourage better descriptions, we also
-recommend that --- in addition to having incentives to support sharing
-of computational artefacts --- relevant scientific conferences also
-have a special track for papers that re-implement past papers'
-algorithms, techniques or tools.
+implementable by any knowledgeable reader of that algorithm. The
+description is, of course, subjective, but to help encourage better
+descriptions, we also recommend that --- in addition to having
+incentives to support sharing of computational artefacts --- relevant
+scientific conferences develop special tracks for papers that
+re-implement past papers' algorithms, techniques or tools.
 
 % Recommendation II
 \subsection{{\emph{Set The Code Free}}}
 
 There can be no better proof of your algorithm working, than if you
-provide the source code of an implementation. Software development is
+provide the source code of an implementation; software development is
 hard, but sharing and re-using code is relatively easy.
 
 Many years ago, Richard Stallman (founder of the GNU Project and Free
@@ -209,35 +209,36 @@ competitors who could use the available code to ``reverse scoop'' the
 inventors, charging into a promising new research area opened by the
 inventors.
 
-Closed source is one thing. Licenses that deny the user from viewing,
+Closed source is one thing; licenses that deny the user from viewing,
 modifying, or sharing the source are another thing. There are,
 however, even licences on widely adopted tools like
-GAUSSIAN~\cite{Giles2004} that prohibit even analysing software
-performance and behaviour. For example, a wide variety of licenses
-exist for molecular dynamics software, with different degrees of
-openness (GROMACS uses the GNU Lesser General Public License
-(LGPL)~\cite{Hess2008}, CHARMM and Desmond are Academic/Commercial
-software licences~\cite{Brooks2009,Bowers2006}, Amber and NAMD are
-custom open-like licences). Z3 is an example from the verification
-area: the code itself was only recently made open source, but the previous MSR-LA license
-allowed the source code to be read, copied, forked for academic use,
-providing researchers in the field substantial flexibility~\cite{deMoura2012Z3open}.
+Gaussian~\cite{Giles2004} (for computational chemistry) that prohibit
+even analysing software performance and behaviour. For example, a wide
+variety of licenses exist for molecular dynamics software, with
+different degrees of openness e.g. Gromacs uses the GNU Lesser General
+Public License (LGPL)~\cite{Hess2008}, CHARMM and Desmond are
+Academic/Commercial software licences~\cite{Brooks2009,Bowers2006},
+Amber and NAMD are custom open-like licences. Z3 is an example from
+the verification area: the code itself was only recently open
+sourced, but the previous MSR-LA license allowed the source code to be
+read, copied, forked for academic use, providing researchers in the
+field substantial flexibility~\cite{deMoura2012Z3open}.
 
 Even ignoring licensing issues, sometimes the source is not made open
-because the author thinks that it isn't quite finished. 
-You should follow the ``release early, release often'' mantra, and
-further release somewhere public like GitHub, where it is easy to
-share and fork. Your code is good enough~\cite{barnes:2010}.
+because the author thinks that it is not quite finished.  You should
+follow the ``release early, release often'' mantra, as well as
+releasing somewhere public like GitHub, where it is easy to share and
+fork. Your code is good enough~\cite{barnes:2010}.
 \\
  
 \noindent {\textbf{Recommendation {\textrm{II}}:}} There is little
-doubt that, if science wants to be open and free, then the code that
-underlies it too needs to be open and free. Code that is available for
-browsing, modifying, and forking, facilitates testing and comparison.
-We recommend that code be published under an appropriate open source
-license~\cite{osl}; while we defer legal discussion of the specifics
-of any particular licences, BSD and Apache are good,
-flexible ones.\\
+doubt that, if scientific research wants to be open and free, then the
+code that underlies it too needs to be open and free. Code that is
+available for browsing, modifying, and forking, facilitates testing
+and comparison.  We recommend that code be published under an
+appropriate open source license~\cite{osl}; while we defer legal
+discussion of the specifics of any particular licences, BSD and Apache
+are good, flexible ones.\\
 % IANAL...
 
 
@@ -245,18 +246,18 @@ flexible ones.\\
 % Recommendation III
 \subsection{{\emph{Be A Better Academic Citizen}}}
 
-If you have the appropriate skills and the experience, you can always
+If you have the appropriate knowledge, skills and experience, you can
 create better software. We have seen the emergence of successful
-initiatives, such as the Software Sustainability
-Institute (\url{http://www.software.ac.uk/}), Software
-Carpentry (\url{http://software-carpentry.org/}) and the UK
-Community of Research Software
-Engineer (\url{http://www.rse.ac.uk}), in cultivating
+initiatives, such as the Software Sustainability Institute
+(\url{http://www.software.ac.uk}) and the UK Community of Research
+Software Engineer (\url{http://www.rse.ac.uk}), in cultivating
 world-class research through software, developing software skills and
 raising the profile of research software engineers.
 
 Many scientists will not have had any formal, or even informal,
-training in scientific software development. Even basic training in
+training in scientific software development. Building upon the work of
+Software Carpentry (\url{http://software-carpentry.org}) and Data
+Carpentry (\url{http://www.datacarpentry.org}), basic training in
 software engineering concepts like version control (git, mercurial),
 unit testing (tests written to exercise the smallest testable parts of
 a system, like a function exported from a module), regression testing
@@ -266,14 +267,13 @@ can help improve the quality of the software written
 enormously~\cite{wilson2006}.  Interestingly, many of these concepts
 are taught to computer science undergraduates, but it could be argued
 that they are taught at the wrong time of their careers, without the
-experience of complex,
-long-running projects.\\
+experience of complex, long-running projects.\\
 %\footnote{\url{http://philipwfowler.wordpress.com/2013/12/19/the-oxford-software-carpentry-boot-camp-one-year-on/}}.
 
 \noindent {\textbf{Recommendation {\textrm{III}}:}} Software
 development skills should be regarded as fundamental literacies for
-scientists and engineers: we recommend that basic programming and
-computational skills are taught as core at undergraduate and
+scientists and engineers: we recommend that formal programming, data
+and computational skills are taught as core at undergraduate and
 postgraduate level.
 
 % Recommendation IV
@@ -286,21 +286,21 @@ science has become, that anyone can create a new programming language,
 API, framework or compiler. This clearly has its advantages and
 disadvantages.
 
-High-level languages are generally more readable than their
-competitors. The ``density'' of a program is often seen to be a good
+High-level languages are generally more readable than their low-level
+relations. The ``density'' of a program is often seen to be a good
 thing, but it is not always the case that a shorter Haskell program
-(for example) is easier to maintain than a longer Python/C++
-one. Nevertheless, what is important is the readability of the code
-itself. A good example here is from the world of automatic theorem
-proving: the SSReflect language is much more readable than the
-original, standard Coq language~\cite{GonthierZND13}. SSReflect uses
-mathematicians' vernacular for script commands, allows reproducibility
-of automatic proof-checking because parameters are named rather than
-numbered.  Even though these proof scripts are really only ever going
-to be run by a machine, they seek to maintain the basic mathematical
-idea that a proof should be readable by another mathematician.
+(for example) is easier to maintain than a longer C++ one; what is
+important is the readability of the code itself. A good example here
+is from the world of automatic theorem proving: the SSReflect language
+is much more readable than the original, standard Coq
+language~\cite{GonthierZND13}. SSReflect uses mathematicians'
+vernacular for script commands, allows reproducibility of automatic
+proof-checking because parameters are named rather than numbered.
+Even though these proof scripts are really only ever going to be run
+by a machine, they seek to maintain the basic mathematical idea that a
+proof should be readable by another mathematician.
 
-High-level programming languages impose constraints like types: that
+Many high-level programming languages impose constraints like types: that
 you can never add a number and a string is the most basic example, but
 ML's functors provide principled ways of plugging in components with
 their implementations completely hidden. Aggressive type checking
@@ -309,7 +309,7 @@ functions e.g. well publicised problems with a NASA Mars
 orbiter (\url{http://www.cnn.com/TECH/space/9909/30/mars.metric.02/}).
 A further example is a pressure coupling
 bug (\url{http://redmine.gromacs.org/issues/14}) in
-GROMACS~\cite{Hess2008}, which arose due to the inappropriate swapping
+Gromacs~\cite{Hess2008}, which arose due to the inappropriate swapping
 of a pressure term with a stress tensor.  A further extension of
 types, a concept called units of measure that is implemented in
 languages such as F\#, can deal with these kinds of bugs at compile
@@ -340,9 +340,8 @@ upstream of the current project are properly credited, encouraging
 future sharing and development. Remember, the people who did the
 research are not necessarily the same people as the developers and
 maintainers of the software, so it is important to reward both
-appropriately with citations (a good way of doing this is the use of
-CITATION
-files \url{http://blog.rtwilson.com/encouraging-citation-of-software-introducing-citation-files/}).
+appropriately with citations: take note of the FORCE11 Software
+Citation Principles~\cite{smith-et-al:2016}.
 
 % Recommendation VI
 \subsection{{\emph{YMMV}}}
@@ -350,22 +349,21 @@ files \url{http://blog.rtwilson.com/encouraging-citation-of-software-introducing
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.8\textwidth]{images/overlyhonesttweet.png}
-\caption{{\texttt{\#overlyhonestmethods}} on Twitter\newline [source: \url{https://twitter.com/ianholmes/status/288689712636493824}]}
+\caption{{\texttt{\#overlyhonestmethods}} on Twitter by @ianholmes\newline [source: \url{https://twitter.com/ianholmes/status/288689712636493824}]}
 \label{fig:overlyhonestmethod} 
 \end{figure}
 
-The tweet in Figure~\ref{fig:overlyhonestmethod} is sad but worryingly
-true, highlighting the perils of reproducible
-research (\url{http://www.phdcomics.com/comics.php?f=1689}). Often,
-the tool that the paper describes does not exist for download. Or runs
-only on one particular bespoke platform. Or might run for the author,
-for a while, but will `bit-rot' so quickly that even the author cannot
-compile it in a couple of month's time.\\
+% (\url{http://www.phdcomics.com/comics.php?f=1689})
+The tweet in Figure~\ref{fig:overlyhonestmethod} is funny but
+worryingly true, highlighting the perils of reproducible
+research. Often, the tool that the paper describes does not exist for
+download. Or runs only on one particular bespoke platform. Or might
+run for the author, for a while, but will `bit-rot' so quickly that
+even the author cannot compile it the following year.\\
 
-\noindent {\textbf{Recommendation {\textrm{VI}}:}} Definitely provide the
-source code of the tool, but also provide
-details of precisely \emph{how} you built and wrote the software. For
-example:
+\noindent {\textbf{Recommendation {\textrm{VI}}:}} You must provide
+the source code of the tool, but also with details of precisely
+\emph{how} you built and wrote the software. For example:
 
 \begin{itemize}
 \item you should provide the compiler and build toolchain; 
@@ -400,9 +398,10 @@ expressed in SMV format, but this would mean that standard
 qualitative/Boolean network behaviours have to be hard-coded for each
 variable, introducing the possibility for errors. In the
 BioModelAnalyzer tool~\cite{Benque2012}, the JSON contains \emph{only}
-the modifiable parameters limiting the possibility for error. The 
+the modifiable parameters limiting the possibility for error; the 
 SBML-Qual standard achieves a similar goal for logical models \cite{Chaouiya2013}.\\
 
+% cite XKCD? https://xkcd.com/927/
 \noindent {\textbf{Recommendation {\textrm{VII}}:}} Avoid creating
 new representations when common formats already exist. Use existing
 extensible internationally standardised representations and formats to
@@ -412,18 +411,18 @@ facilitate sharing and re-use.
 \subsection{{\emph{World Records}}}
 
 The benchmarks the tool describes are fashioned only for this instance
-of this time. They might claim to be from the Windows device driver
-set, but the reality is that they are stripped down versions of the
-originals. Stripped down so much as to be useless to anyone but the
-author vs. the referee. It is worse than that really: enough
+of this time. They might claim to be from the Microsoft Windows device
+driver set, but the reality is that they are stripped down versions of
+the originals. Stripped down so much as to be useless to anyone but
+the author vs. the referee. It is worse than that really: enough
 benchmarks are included to beat other tools. The comparisons are never
-fair (neither are other peoples' comparisons against your tool). If
-every paper has to be novel, then every benchmark, too, will be novel;
-there is no monotonic, historical truth in new, synthetically-crafted
+fair (especially for comparisons against your tool). If every paper
+has to be novel, then every benchmark, too, will be novel; there is no
+monotonic, historical truth in new, synthetically-crafted
 benchmarks. It is as if, in order to beat Usain Bolt's
-\num{100}\si{\metre} world record time, you make him wear boots on a
-muddy icy track, weighing him down with \num{50}\si{\kilogram} of
-excess weight. Given this setup, you could surely hope to beat his
+\num{100}\si{\metre} world record time, you make him race overweight
+and out of season, with a winter overcoat and the wrong sized
+shoes. Given this setup, you could surely hope to beat his
 \num{9.58}\si{\second} time on a shorter length track.\\
 
 \noindent {\textbf{Recommendation {\textrm{VIII}}:}} Benchmarks should
@@ -483,7 +482,7 @@ challenges to testing, unshared code is ultimately untestable.
 Testing new complex scientific software is difficult -- until the
 software is complete, unit tests may not be available. You should aim
 to re-use modules or repos (git submodules) from publicly-shared
-code. An implication of Linus's Law (``given enough eyeballs, all bugs
+code; a corollary of Linus's Law (``given enough eyeballs, all bugs
 are shallow'') might be that shared code is inherently more test-able.
 
 
@@ -496,10 +495,10 @@ efficient, you could put together a cluster of slow nodes in the cloud
 to demonstrate how well the software scales for parallel calculations.
 Cloud computing is cheap, and getting cheaper. Algorithms that used to
 require massive HPC resources can now be run cheaply by bidding on the
-VM spot market. The Web is a great leveller: use and share workflows
+VM spot market. The web is a great leveller: use and share workflows
 and web services~\cite{crick-et-al:2009b,oabarriaga-et-al:2014}.\\
 
-\noindent {\textbf{Recommendation {\textrm{X}}:}} The Web and the
+\noindent {\textbf{Recommendation {\textrm{X}}:}} The web and the
 cloud really do open up a whole new way of working. Even small,
 seemingly trivial features like putting up a web interface to your
 tool and its tests will allow users who are not able to install
